@@ -2,7 +2,7 @@ module AppscreensIoUploader
 
   class Uploader
     def upload!(project_id, screenshots)
-      base_uri = 'http://appscreens.dev'
+      base_uri = 'https://appscreens.io'
       api_base_uri = base_uri + '/api/v1'
       screens_uri = '/projects/' + project_id + '/screens'
       #GET /projects/{project_id}/screens

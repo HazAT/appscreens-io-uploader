@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = AppscreensIoUploader::VERSION
   spec.authors       = ["Daniel Griesser"]
   spec.email         = ["daniel.griesser.86@gmail.com"]
-  spec.summary       = %q{Upload your screenshots to appscreens.io}
-  spec.description   = %q{Upload your screenshots to appscreens.io}
+  spec.summary       = %q{Upload your screenshots to https://appscreens.io}
+  spec.description   = %q{Upload your screenshots to https://appscreens.io}
   spec.homepage      = "https://appscreens.io"
   spec.license       = "MIT"
 
