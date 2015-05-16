@@ -4,9 +4,6 @@ require 'httmultiparty'
 
 module AppscreensIoUploader
   class Runner
-    def initialize
-
-    end
 
     def run(path, project_id, screensSize = Deliver::AppScreenshot::ScreenSize::IOS_55)
       screenshots = Dir.glob("#{path}/**/*.{png,PNG}")

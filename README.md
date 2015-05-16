@@ -21,6 +21,10 @@ Install the gem
 Call ```appscreensIoUploader``` in the forlder where your screenshots are located and pass the id of your project (the last part of the URL on https://appscreens.io/[project_id])
 
     appscreensIoUploader [project_id]
+    
+To upload screens with a different screensize than 5.5 inch use the --screenSize option (deliver string syntax use ```appscreensIoUploader existing_project --help```)
+
+    appscreensIoUploader [project_id] --screenSize=iOS-4.0-in
 
 ## Uninstall
 

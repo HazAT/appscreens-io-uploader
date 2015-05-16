@@ -25,9 +25,11 @@ class AppscreensIoUploaderApplication
     command :existing_project do |c|
       c.syntax = 'appscreensIoUploader existing_project'
       c.description = "uploads the screenshots to your project on appscreens.io"
+      c.option '--screenSize STRING', String, 'screensize to upload iOS-5.5-in | iOS-4.7-in | iOS-4.0-in'
 
       c.action do |args, options|
-        AppscreensIoUploader::Runner.new.run('.', args[0], Deliver::AppScreenshot::ScreenSize::IOS_55)
+        options.default :screenSize => Deliver::AppScreenshot::ScreenSize::IOS_55
+        AppscreensIoUploader::Runner.new.run('.', args[0], options.screenSize)
       end
     end
 
