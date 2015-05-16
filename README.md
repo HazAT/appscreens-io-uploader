@@ -24,7 +24,7 @@ Call ```appscreens-io-uploader``` in the forlder where your screenshots are loca
 
 To upload screens with a different screensize than 5.5 inch use the --screenSize option (deliver string syntax use ```appscreens-io-uploader existing_project --help```)
 
-    appscreens-io-uploader [project_id] --screenSize=iOS-4.0-in
+    appscreens-io-uploader [project_id] --screenSize=iOS-4-in
 
 ## Uninstall
 
