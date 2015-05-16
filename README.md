@@ -8,7 +8,7 @@ appscreens.io Uploader
 
 # Features
 
-This gem uploads your app screenshots to [appscreens.io](https://appscreens.io), so you can conveniently style and translate them for the AppStore. It is built to easily integrate with [@KrauseFx](https://twitter.com/KrauseFx)'s [snapshot](https://github.com/fastlane/snapshot).
+This gem uploads your app screenshots to [appscreens.io](https://appscreens.io), so you can conveniently style and translate them for the AppStore. It is built to easily integrate with [@KrauseFx](https://twitter.com/KrauseFx)'s [snapshot](https://github.com/KrauseFx/snapshot).
 
 # Installation
 
