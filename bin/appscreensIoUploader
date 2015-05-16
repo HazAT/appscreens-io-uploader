@@ -14,8 +14,8 @@ class AppscreensIoUploaderApplication
     program :version, AppscreensIoUploader::VERSION
     program :description, 'Upload your screenshots to appscreens.io'
     program :help, 'Author', 'Daniel Griesser <daniel.griesser.86@gmail.com>'
-    program :help, 'Website', 'https://appscreens.io'
-    program :help, 'GitHub', 'https://github.com/hazat/appscreens-io-uploader'
+    program :help, 'Website', 'https://github.com/HazAT/appscreens-io-uploader'
+    program :help, 'GitHub', 'https://github.com/HazAT/appscreens-io-uploader'
     program :help_formatter, :compact
 
     always_trace!
