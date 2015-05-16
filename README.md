@@ -1,4 +1,4 @@
-appscreensIoUploader
+appscreens.io Uploader
 ============
 
 [![Twitter: @DanielGri](https://img.shields.io/badge/contact-@DanielGri-blue.svg?style=flat)](https://twitter.com/DanielGri)
