@@ -8,7 +8,7 @@ appscreensIoUploader
 
 # Features
 
-Uploads the screenshots generated with [frameit](https://github.com/fastlane/frameit) or just screenshots you took of your device and uploads it to [appscreens.io](https://appscreens.io) so you can style/translate them for the AppStore.
+Uploads the screenshots generated with [snapshot](https://github.com/fastlane/snapshot) or just screenshots you took of your device and uploads it to [appscreens.io](https://appscreens.io) so you can style/translate them for the AppStore.
 
 # Installation
 
@@ -32,7 +32,7 @@ To upload screens with a different screensize than 5.5 inch use the --screenSize
 	rm -rf ~/.appscreensIoUploader
 
 # Thanks
-This gem is using pretty much the structure of [@KrauseFx](https://twitter.com/KrauseFx) [frameit](https://github.com/fastlane/frameit) and also the [fastlane_core](https://github.com/fastlane/fastlane_core) for convenience.
+This gem is using pretty much the whole structure of [@KrauseFx](https://twitter.com/KrauseFx) [frameit](https://github.com/fastlane/frameit) and the [fastlane_core](https://github.com/fastlane/fastlane_core) for convenience.
 
 # License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
