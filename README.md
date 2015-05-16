@@ -8,20 +8,20 @@ appscreens.io Uploader
 
 # Features
 
-Uploads the screenshots generated with [snapshot](https://github.com/fastlane/snapshot) or just screenshots you took of your device and uploads it to [appscreens.io](https://appscreens.io) so you can style/translate them for the AppStore.
+This gem uploads your app screenshots to [appscreens.io](https://appscreens.io), so you can conveniently style and translate them for the AppStore. It is built to easily integrate with [@KrauseFx](https://twitter.com/KrauseFx)'s [snapshot](https://github.com/fastlane/snapshot).
 
 # Installation
 
 Install the gem
 
     sudo gem install appscreensIoUploader
-  
+
 # Usage
 
 Call ```appscreensIoUploader``` in the forlder where your screenshots are located and pass the id of your project (the last part of the URL on https://appscreens.io/[project_id])
 
     appscreensIoUploader [project_id]
-    
+
 To upload screens with a different screensize than 5.5 inch use the --screenSize option (deliver string syntax use ```appscreensIoUploader existing_project --help```)
 
     appscreensIoUploader [project_id] --screenSize=iOS-4.0-in
@@ -36,4 +36,3 @@ This gem is using pretty much the whole structure of [@KrauseFx](https://twitter
 
 # License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
-
