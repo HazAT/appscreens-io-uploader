@@ -3,7 +3,7 @@ appscreens.io Uploader
 
 [![Twitter: @DanielGri](https://img.shields.io/badge/contact-@DanielGri-blue.svg?style=flat)](https://twitter.com/DanielGri)
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/HazAT/appscreens-io-uploader/blob/master/LICENSE)
-[![Gem](https://img.shields.io/gem/v/appscreensIoUploader.svg?style=flat)](http://rubygems.org/gems/appscreensIoUploader)
+[![Gem](https://img.shields.io/gem/v/appscreens-io-uploader.svg?style=flat)](http://rubygems.org/gems/appscreens-io-uploader)
 
 
 # Features
@@ -14,22 +14,22 @@ This gem uploads your app screenshots to [appscreens.io](https://appscreens.io),
 
 Install the gem
 
-    sudo gem install appscreensIoUploader
+    sudo gem install appscreens-io-uploader
 
 # Usage
 
-Call ```appscreensIoUploader``` in the forlder where your screenshots are located and pass the id of your project (the last part of the URL on https://appscreens.io/[project_id])
+Call ```appscreens-io-uploader``` in the forlder where your screenshots are located and pass the id of your project (the last part of the URL on https://appscreens.io/[project_id])
 
-    appscreensIoUploader [project_id]
+    appscreens-io-uploader [project_id]
 
-To upload screens with a different screensize than 5.5 inch use the --screenSize option (deliver string syntax use ```appscreensIoUploader existing_project --help```)
+To upload screens with a different screensize than 5.5 inch use the --screenSize option (deliver string syntax use ```appscreens-io-uploader existing_project --help```)
 
-    appscreensIoUploader [project_id] --screenSize=iOS-4.0-in
+    appscreens-io-uploader [project_id] --screenSize=iOS-4.0-in
 
 ## Uninstall
 
-	sudo gem uninstall appscreensIoUploader
-	rm -rf ~/.appscreensIoUploader
+	sudo gem uninstall appscreens-io-uploader
+	rm -rf ~/.appscreens-io-uploader
 
 # Thanks
 This gem is using pretty much the whole structure of [@KrauseFx](https://twitter.com/KrauseFx) [frameit](https://github.com/fastlane/frameit) and the [fastlane_core](https://github.com/fastlane/fastlane_core) for convenience.

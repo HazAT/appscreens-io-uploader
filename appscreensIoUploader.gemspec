@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'appscreensIoUploader/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "appscreensIoUploader"
+  spec.name          = "appscreens-io-uploader"
   spec.version       = AppscreensIoUploader::VERSION
   spec.authors       = ["Daniel Griesser"]
   spec.email         = ["daniel.griesser.86@gmail.com"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.0.0'
 
-  spec.files = Dir["lib/**/*"] + %w{ bin/appscreensIoUploader README.md LICENSE }
+  spec.files = Dir["lib/**/*"] + %w{ bin/appscreens-io-uploader README.md LICENSE }
 
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
