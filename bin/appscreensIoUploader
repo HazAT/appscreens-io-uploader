@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+$:.push File.expand_path("../../lib", __FILE__)
+
+require 'appscreensIoUploader'
+require 'commander'
+
+HighLine.track_eof = false
+
+class AppscreensIoUploaderApplication
+  include Commander::Methods
+
+  def run
+    program :version, AppscreensIoUploader::VERSION
+    program :description, 'Upload your screenshots to appscreens.io'
+    program :help, 'Author', 'Daniel Griesser <daniel.griesser.86@gmail.com>'
+    program :help, 'Website', 'https://appscreens.io'
+    program :help, 'GitHub', 'https://github.com/hazat/appscreens-io-uploader'
+    program :help_formatter, :compact
+
+    always_trace!
+
+    default_command :existing_project
+
+    command :existing_project do |c|
+      c.syntax = 'appscreensIoUploader existing_project'
+      c.description = "uploads the screenshots to your project on appscreens.io"
+
+      c.action do |args, options|
+        AppscreensIoUploader::Runner.new.run('.', args[0], Deliver::AppScreenshot::ScreenSize::IOS_55)
+      end
+    end
+
+    run!
+  end
+end
+
+
+begin
+  AppscreensIoUploaderApplication.new.run
+end
