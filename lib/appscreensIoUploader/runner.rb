@@ -13,7 +13,7 @@ module AppscreensIoUploader
       maxScreens = 5
 
       if (project_id.length != 10)
-        Helper.log.error "No valid ProjectId '#{project_id}' must be exactly 10 chars (copy it from your appscreens.io URL)"
+        Helper.log.error "No valid project_id '#{project_id}' must be exactly 10 chars (copy it from your appscreens.io/[project_id] URL)"
         return
       end
 

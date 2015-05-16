@@ -39,5 +39,12 @@ end
 
 
 begin
+
+end
+
+begin
+  FastlaneCore::UpdateChecker.start_looking_for_update('deliver')
   AppscreensIoUploaderApplication.new.run
+ensure
+  FastlaneCore::UpdateChecker.show_update_status('deliver', '0.3')
 end

@@ -32,12 +32,14 @@ module AppscreensIoUploader
           end
 
         end
+
       else
         Helper.log.error "not able to fetch your project, make sure it exsists under #{base_uri}/#{project_id}"
         return
       end
 
-      Helper.log.info "successfully uplopaded all your screens ... you can edit them under #{base_uri}/#{project_id}".green
+      Helper.log.info "successfully uploaded all your screens ... you can edit them under #{base_uri}/#{project_id}".green
     end
   end
+
 end
