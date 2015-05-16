@@ -2,6 +2,7 @@ module AppscreensIoUploader
 
   class Uploader
     def upload!(project_id, screenshots)
+
       base_uri = 'https://appscreens.io'
       api_base_uri = base_uri + '/api/v1'
       screens_uri = '/projects/' + project_id + '/screens'
@@ -10,27 +11,26 @@ module AppscreensIoUploader
       response = HTTParty.get(api_base_uri + screens_uri)
       if response.code == 200
         screens = JSON.parse(response.body)
+        screenshots.each do |language, screenshots_per_language|
+          screenshots_per_language.each_with_index do |screenshot, index|
+            screens.each do |screen|
+              if screen['language'] == language && index == screen['order'].to_i
+                screenshot_path = screenshot.path
+                Helper.log.info "uploading screenshot #{screenshot_path} screen nr: #{(screen['order'].to_i+1)} lang: #{screen['language']}"
+                # POST /projects/{project_id}/screens/{screen_id}/image
+                upload_response = HTTMultiParty.post(api_base_uri + screens_uri + '/' + screen['id'] + '/image', :query => {
+                  :image => File.new(screenshot_path)
+                })
+                if response.code == 200
+                  Helper.log.info "successfully uploaded screenshot #{screenshot_path}".green
+                else
+                  Helper.log.error "error while uploading screenshot #{screenshot_path} #{upload_response.body}"
+                end
+              else
 
-        # TODO add multilang support
-        if screens.count > 5
-          Helper.log.error "your appscreens.io projects seems to have more than one language - support for this will be shortly :) - sorry".red
-          return
-        end
-
-        screens.each_with_index do |screen, index|
-
-          screenshot_path = screenshots[index].path
-          Helper.log.info "uploading screenshot #{screenshot_path} screen nr: #{screen['order']} lang: #{screen['language']}"
-          # POST /projects/{project_id}/screens/{screen_id}/image
-          upload_response = HTTMultiParty.post(api_base_uri + screens_uri + '/' + screen['id'] + '/image', :query => {
-            :image => File.new(screenshot_path)
-          })
-          if response.code == 200
-            Helper.log.info "successfully uploaded screenshot #{screenshot_path}".green
-          else
-            Helper.log.error "error while uploading screenshot #{screenshot_path} #{upload_response.body}"
+              end
+            end
           end
-
         end
 
       else

@@ -3,6 +3,7 @@ module AppscreensIoUploader
   class Screenshot
     attr_accessor :path # path to the screenshot
     attr_accessor :size # size in px array of 2 elements: height and width
+    attr_accessor :language # 2 letter language code parsed out of file name - if not found en is used
     attr_accessor :screen_size # deliver screen size type, is unique per device type, used in device_name
 
     # path: Path to screenshot
@@ -11,6 +12,14 @@ module AppscreensIoUploader
       raise "Couldn't find file at path '#{path}'".red unless File.exists?path
       @path = path
       @size = FastImage.size(path)
+
+      matched_language = /\/([a-zA-Z]{2})-/.match(path)
+      if matched_language
+        @language = matched_language.captures[0]
+      else
+        @language = 'en'
+        Helper.log.info "cannot find language in filename fallback to 'en' file: #{path}"
+      end
 
       @screen_size = Deliver::AppScreenshot.calculate_screen_size(path)
     end
