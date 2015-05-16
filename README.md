@@ -18,7 +18,7 @@ Install the gem
 
 # Usage
 
-Call ```appscreens-io-uploader``` in the forlder where your screenshots are located and pass the id of your project (the last part of the URL on https://appscreens.io/[project_id])
+Call ```appscreens-io-uploader``` in the forlder where your screenshots are located and pass the id of your project (the last part of the URL on https://appscreens.io/new)
 
     appscreens-io-uploader [project_id]
 
