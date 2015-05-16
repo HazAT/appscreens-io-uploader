@@ -5,7 +5,7 @@ require 'httmultiparty'
 module AppscreensIoUploader
   class Runner
 
-    def run(path, project_id, screensSize = Deliver::AppScreenshot::ScreenSize::IOS_55)
+    def run(path, project_id, screensSize)
       screenshots = Dir.glob("#{path}/**/*.{png,PNG}")
 
       screenshots_to_upload = Array.new
@@ -27,12 +27,12 @@ module AppscreensIoUploader
 
           begin
             screenshot = Screenshot.new(full_path)
-            if screensSize <= screenshot.screen_size && screenshots_to_upload.count < maxScreens
+            if screensSize == screenshot.screen_size && screenshots_to_upload.count < maxScreens
               if !screenshot.is_portrait?
-                raise "appscreens.io only supports PORTRAIT Orientation for now"
+                raise "appscreens.io only supports PORTRAIT Orientation for now".red
               end
               if !screenshot.is_supported_screen_size?
-                raise "appscreens.io only supports 4.7inch,5inch and 5.5inch screen sizes"
+                raise "appscreens.io only supports 4.7inch,5inch and 5.5inch screen sizes".red
               end
               screenshots_to_upload << screenshot
             end
@@ -41,10 +41,14 @@ module AppscreensIoUploader
           end
         end
 
-        uploader = Uploader.new
-        uploader.upload!(project_id, screenshots_to_upload)
+        if screenshots_to_upload.count == 0
+          Helper.log.error "Could not find any screensshots that fit the spec, please check again".red
+        else
+          uploader = Uploader.new
+          uploader.upload!(project_id, screenshots_to_upload)
+        end
       else
-        Helper.log.error "Could not find screenshots"
+        Helper.log.error "Could not find screenshots".red
       end
     end
   end

@@ -10,9 +10,17 @@ module AppscreensIoUploader
       response = HTTParty.get(api_base_uri + screens_uri)
       if response.code == 200
         screens = JSON.parse(response.body)
+
+        # TODO add multilang support
+        if screens.count > 5
+          Helper.log.error "your appscreens.io projects seems to have more than one language - support for this will be shortly :) - sorry".red
+          return
+        end
+
         screens.each_with_index do |screen, index|
+
           screenshot_path = screenshots[index].path
-          Helper.log.info "uploading screenshot #{screenshot_path}"
+          Helper.log.info "uploading screenshot #{screenshot_path} screen nr: #{screen['order']} lang: #{screen['language']}"
           # POST /projects/{project_id}/screens/{screen_id}/image
           upload_response = HTTMultiParty.post(api_base_uri + screens_uri + '/' + screen['id'] + '/image', :query => {
             :image => File.new(screenshot_path)
