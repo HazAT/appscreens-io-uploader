@@ -21,8 +21,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'httmultiparty', '~> 0.3.16' # used for http multipart requests
-  spec.add_dependency 'fastlane_core', '>= 0.7.2' # all shared code and dependencies
   spec.add_dependency 'fastimage', '~> 1.6.3' # fetch the image sizes from the screenshots
-  spec.add_dependency 'deliver', '> 0.3.3' # To determine the device type based on a screenshot file
 
 end
